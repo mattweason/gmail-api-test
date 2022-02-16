@@ -10,3 +10,6 @@ npm-debug.log
 yarn-error.log
 
 credentials.json
+messages.json
+emails.json
+token.json

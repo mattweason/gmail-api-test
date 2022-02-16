@@ -13,29 +13,11 @@ const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
 const TOKEN_PATH = 'token.json';
 
 // Load client secrets from a local file.
-// fs.readFile('credentials.json', (err, content) => {
-//     if (err) return console.log('Error loading client secret file:', err);
-//     // Authorize a client with credentials, then call the Gmail API.
-//     authorize(JSON.parse(content), listMessages);
-// });
-
-authorizeMicrosoft()
-
-/**
- * OAuth2 path for Microsoft
- */
-
-function authorizeMicrosoft(credentials, callback) {
-    axios
-        .get('https://login.microsoftonline.com/common/oauth2/v2.0/authorize')
-        .then(res => {
-            console.log(`statusCode: ${res.status}`)
-            console.log(res)
-        })
-        .catch(error => {
-            console.error(error)
-        })
-}
+fs.readFile('credentials.json', (err, content) => {
+    if (err) return console.log('Error loading client secret file:', err);
+    // Authorize a client with credentials, then call the Gmail API.
+    authorize(JSON.parse(content), listMessages);
+});
 
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
